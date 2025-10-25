@@ -1,5 +1,25 @@
 # Action Plan: The Knowledge Graph Evolution System
 
+## Executive Summary
+
+- **Objective:** Ship a visually stunning and end-to-end functional Knowledge Graph Evolution experience in eight weeks, moving from a synthetic prototype to a production-ready pipeline that ingests real video content.
+- **Strategy:** Move through three focused phases—beauty-first design validation, local proof with real documents, and production-grade ingestion—while maintaining a daily shipping cadence and human oversight at key gates.
+- **Team Rhythm:** Every workday ends with a tangible artifact (prototype, component, report, or demo). Claude Code handles the bulk of implementation while humans provide direction, review, and final decisions.
+- **Success Metrics:** Weekly gates measure qualitative delight ("does this feel magical?") and quantitative thresholds (e.g., 60fps interactions, 5K+ facts handled, 8/10 authenticity ratings) to ensure progress translates into user value.
+
+## Table of Contents
+
+1. [8-Week Shipping Sprint](#8-week-shipping-sprint)
+2. [Overview: The 8-Week Strategy](#overview-the-8-week-strategy)
+3. [Phase 0: Beauty First (Weeks 1-2)](#phase-0-beauty-first-weeks-1-2)
+4. [Phase 1: Local Proof (Weeks 3-4)](#phase-1-local-proof-weeks-3-4)
+5. [Phase 2: Claude Validation (Weeks 5-6)](#phase-2-claude-validation-weeks-5-6)
+6. [Phase 3: End-to-End (Weeks 7-8)](#phase-3-end-to-end-weeks-7-8)
+7. [Appendix: Claude Code Integration Patterns](#appendix-claude-code-integration-patterns)
+8. [Execution Checklist](#execution-checklist)
+9. [Gate Criteria](#gate-criteria)
+10. [Key Success Factors](#key-success-factors)
+
 ## 8-Week Shipping Sprint
 
 **Philosophy:** Paul Graham's "Do Things That Don't Scale" meets agentic programming. Ship constantly. Get something on screen by end of day 1. Iterate ruthlessly. Use Claude Code as your primary development partner.
