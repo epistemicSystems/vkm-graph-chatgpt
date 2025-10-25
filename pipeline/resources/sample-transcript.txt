@@ -1,0 +1,5 @@
+We started the project believing the only lever that mattered was raw parameter count. Each doubling delivered a predictable loss reduction, and we assumed the curves would keep falling. As we scaled, the data started to fight back. Noise, duplication, and stale corpora introduced unexpected plateaus.
+
+The team formed an ad-hoc curation guild, cleaning corpora at night and tightening ingestion filters. Suddenly the gains returned. Our intuition shifted: scaling was now a joint conversation between architecture and data quality.
+
+By 2023, optimizer regimes stole the spotlight. We experimented with warm-up schedules, adaptive clipping, and second order moments. The stability improvements were impossible to ignore and felt equivalent to adding billions of parameters. Scaling had become a triangle.

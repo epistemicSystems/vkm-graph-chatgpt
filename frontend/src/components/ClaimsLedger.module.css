@@ -1,0 +1,74 @@
+.container {
+  background: rgba(15, 13, 23, 0.78);
+  border-radius: 28px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgba(148, 126, 255, 0.25);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: rgba(190, 180, 255, 0.8);
+}
+
+.title {
+  font-size: 20px;
+  color: rgba(244, 238, 255, 0.9);
+  margin: 0;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) 120px;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(153, 142, 220, 0.2);
+  align-items: center;
+}
+
+.topic {
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(215, 205, 255, 0.75);
+}
+
+.copy {
+  margin: 0;
+  color: rgba(237, 232, 255, 0.85);
+  line-height: 1.5;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+  color: rgba(210, 204, 246, 0.8);
+}
+
+.confidence {
+  font-size: 16px;
+}
+
+.date {
+  font-size: 12px;
+}

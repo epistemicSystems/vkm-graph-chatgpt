@@ -1,0 +1,107 @@
+.container {
+  background: radial-gradient(circle at top left, rgba(255, 230, 179, 0.25), transparent 55%),
+    linear-gradient(135deg, rgba(18, 17, 28, 0.9), rgba(18, 17, 28, 0.6));
+  border-radius: 28px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 18px 48px rgba(15, 14, 23, 0.4);
+  border: 1px solid rgba(255, 215, 160, 0.35);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kicker {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: rgba(255, 215, 160, 0.9);
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fef8ed;
+  margin: 0;
+}
+
+.position {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 240, 220, 0.8);
+}
+
+.track {
+  position: relative;
+  height: 120px;
+}
+
+.progress {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(246, 200, 128, 0.4), rgba(246, 200, 128, 0.95));
+  pointer-events: none;
+  transition: width 280ms ease;
+}
+
+.node {
+  position: absolute;
+  transform: translateX(-50%);
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 160px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 260ms ease, filter 260ms ease;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.node::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(179, 162, 255, 0.4);
+  border: 2px solid rgba(246, 200, 128, 0.5);
+  box-shadow: 0 0 0 4px rgba(246, 200, 128, 0.15);
+  transition: all 260ms ease;
+}
+
+.node:hover {
+  transform: translateX(-50%) translateY(-6px);
+  filter: brightness(1.05);
+}
+
+.active::before {
+  background: linear-gradient(135deg, #ffe7b8, #f4c778);
+  border-color: rgba(255, 225, 168, 0.9);
+  box-shadow: 0 0 0 6px rgba(246, 200, 128, 0.25);
+}
+
+.label {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 232, 196, 0.85);
+}
+
+.caption {
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.3;
+}
