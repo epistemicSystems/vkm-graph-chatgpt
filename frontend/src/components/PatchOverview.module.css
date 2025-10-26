@@ -1,0 +1,32 @@
+.overview {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.focusQuestion {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #bae6fd;
+  margin: 0;
+}
+
+.narrative {
+  margin: 0;
+  line-height: 1.8;
+  color: #e2e8f0;
+}
+
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.metricChip {
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #f0f9ff;
+  font-size: 0.85rem;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
