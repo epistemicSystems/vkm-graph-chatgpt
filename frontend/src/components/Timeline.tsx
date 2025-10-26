@@ -1,53 +1,41 @@
-import { useMemo } from 'react'
-import type { KnowledgePatch } from '../types'
 import styles from './Timeline.module.css'
+import type { Patch } from '../types'
 
-type TimelineProps = {
-  patches: KnowledgePatch[]
+type Props = {
+  patches: Patch[]
   activeId: string
-  onSelect: (patchId: string) => void
+  onSelect: (id: string) => void
 }
 
-const formatDate = (iso: string) =>
-  new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'short',
-  }).format(new Date(iso))
+const formatTimestamp = (timestamp: string) => {
+  try {
+    const date = new Date(timestamp)
+    return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date)
+  } catch (error) {
+    return timestamp
+  }
+}
 
-export function Timeline({ patches, activeId, onSelect }: TimelineProps) {
-  const activeIndex = useMemo(
-    () => Math.max(0, patches.findIndex((patch) => patch.id === activeId)),
-    [patches, activeId],
-  )
-
+export function Timeline({ patches, activeId, onSelect }: Props) {
   return (
-    <section className={styles.container}>
-      <header className={styles.header}>
-        <div>
-          <p className={styles.kicker}>Knowledge patches</p>
-          <h2 className={styles.title}>Evolution timeline</h2>
-        </div>
-        <div className={styles.position}>{formatDate(patches[activeIndex]?.timestamp ?? '')}</div>
-      </header>
-      <div className={styles.track}>
-        {patches.map((patch, index) => {
+    <div className={styles.timeline}>
+      <ul className={styles.list}>
+        {patches.map((patch) => {
           const isActive = patch.id === activeId
-          const alignment = index / (patches.length - 1 || 1)
+          const className = isActive
+            ? `${styles.itemButton} ${styles.itemButtonActive}`
+            : styles.itemButton
           return (
-            <button
-              key={patch.id}
-              type="button"
-              className={`${styles.node} ${isActive ? styles.active : ''}`}
-              style={{ left: `${alignment * 100}%` }}
-              onClick={() => onSelect(patch.id)}
-            >
-              <span className={styles.label}>{formatDate(patch.timestamp)}</span>
-              <span className={styles.caption}>{patch.label}</span>
-            </button>
+            <li key={patch.id}>
+              <button type="button" className={className} onClick={() => onSelect(patch.id)}>
+                <span className={styles.timestamp}>{formatTimestamp(patch.timestamp)}</span>
+                <span className={styles.focusQuestion}>{patch.focusQuestion}</span>
+                <span className={styles.confidence}>Confidence {Math.round(patch.confidence * 100)}%</span>
+              </button>
+            </li>
           )
         })}
-        <div className={styles.progress} style={{ width: `${(activeIndex / Math.max(patches.length - 1, 1)) * 100}%` }} />
-      </div>
-    </section>
+      </ul>
+    </div>
   )
 }

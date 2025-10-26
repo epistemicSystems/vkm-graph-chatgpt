@@ -1,74 +1,56 @@
-.container {
-  background: rgba(15, 13, 23, 0.78);
-  border-radius: 28px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border: 1px solid rgba(148, 126, 255, 0.25);
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.kicker {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: rgba(190, 180, 255, 0.8);
-}
-
-.title {
-  font-size: 20px;
-  color: rgba(244, 238, 255, 0.9);
-  margin: 0;
-}
-
-.table {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.row {
+.ledger {
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr) 120px;
-  gap: 16px;
-  padding: 18px 20px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(153, 142, 220, 0.2);
-  align-items: center;
+  gap: 1rem;
 }
 
-.topic {
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: rgba(215, 205, 255, 0.75);
+.claimCard {
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+  display: grid;
+  gap: 0.5rem;
 }
 
-.copy {
-  margin: 0;
-  color: rgba(237, 232, 255, 0.85);
-  line-height: 1.5;
-}
-
-.meta {
+.headerRow {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: flex-end;
-  color: rgba(210, 204, 246, 0.8);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .confidence {
-  font-size: 16px;
+  font-size: 0.85rem;
+  color: #fbbf24;
 }
 
-.date {
-  font-size: 12px;
+.source {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.body {
+  margin: 0;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  background: rgba(248, 250, 252, 0.1);
+  border: 1px solid rgba(248, 250, 252, 0.2);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }

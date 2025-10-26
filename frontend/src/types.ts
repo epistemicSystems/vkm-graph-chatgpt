@@ -1,53 +1,32 @@
+export interface Claim {
+  id: string
+  text: string
+  confidence: number
+  source?: string
+  tags?: string[]
+}
+
 export interface ConceptCluster {
   id: string
   label: string
   summary: string
-  position: [number, number]
-  confidence: number
-  emphasis?: 'core' | 'supporting' | 'emerging'
+  support: number
+  topTerms: string[]
 }
 
-export interface PatchClaim {
-  id: string
-  text: string
-  confidence: number
-  topic: string
-  validFrom: string
-}
-
-export interface PatchTransition {
-  id: string
-  type: 'refinement' | 'pivot' | 'connection'
-  description: string
-  strength: number
-  targetPatchId: string
-}
-
-export interface PatchInsight {
-  id: string
-  statement: string
-  category: 'structure' | 'surprise' | 'validation'
-  weight: number
-}
-
-export interface KnowledgePatch {
+export interface Patch {
   id: string
   timestamp: string
-  label: string
+  focusQuestion: string
   narrative: string
   confidence: number
-  focusQuestion: string
-  horizon: 'local' | 'seasonal' | 'epochal'
+  claims: Claim[]
   clusters: ConceptCluster[]
-  claims: PatchClaim[]
-  transitions: PatchTransition[]
-  insights: PatchInsight[]
 }
 
-export interface TimelineTopic {
-  id: string
-  title: string
-  owner: string
+export interface TimelineData {
+  subject: string
   mission: string
-  patches: KnowledgePatch[]
+  owner: string
+  patches: Patch[]
 }

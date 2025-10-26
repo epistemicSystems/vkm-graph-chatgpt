@@ -1,79 +1,110 @@
-:global(body) {
-  margin: 0;
-  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at 0% 0%, rgba(48, 43, 80, 0.9), #08070f 65%);
-  color: #f9f7ff;
-}
-
 .app {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 48px 32px 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  min-height: 100vh;
+  padding: 3rem 2.5rem 4rem;
+  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .hero {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 28px;
-  padding: 36px 40px;
-  border-radius: 32px;
-  background: linear-gradient(135deg, rgba(38, 34, 62, 0.85), rgba(14, 13, 22, 0.9));
-  border: 1px solid rgba(255, 225, 189, 0.18);
-  box-shadow: 0 32px 80px rgba(8, 7, 16, 0.6);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.heroText {
+  max-width: 38rem;
 }
 
 .kicker {
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 0.35em;
-  font-size: 12px;
-  color: rgba(237, 222, 199, 0.75);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .title {
-  font-size: clamp(28px, 3vw, 48px);
-  margin: 12px 0 16px;
-  font-weight: 600;
-  color: rgba(255, 248, 235, 0.95);
+  font-size: clamp(2.2rem, 3vw + 1.2rem, 3.2rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
 }
 
 .subtitle {
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(237, 231, 255, 0.8);
+  color: #cbd5f5;
+  font-size: 1rem;
+  line-height: 1.7;
   margin: 0;
 }
 
 .heroMeta {
   display: grid;
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1.25rem;
   align-content: start;
-  min-width: 220px;
+}
+
+.metaBlock {
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.45);
 }
 
 .metaLabel {
-  font-size: 11px;
+  display: block;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: rgba(210, 197, 255, 0.72);
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  margin-bottom: 0.35rem;
 }
 
 .metaValue {
-  font-size: 20px;
-  margin: 6px 0 0;
-  color: rgba(247, 240, 255, 0.95);
+  margin: 0;
+  font-size: 1.15rem;
 }
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 32px;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 3rem 0;
 }
 
-@media (min-width: 1100px) {
-  .layout {
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+.sectionCard {
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #60a5fa;
+}
+
+.sectionMeta {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 2.5rem 1.5rem 3rem;
   }
 }

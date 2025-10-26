@@ -1,16 +1,18 @@
 # Knowledge Graph Evolution · Frontend
 
-A React + Vite experience layer that visualizes how a researcher&apos;s understanding evolves across immutable knowledge patches. The UI renders synthetic data for Dr. Sarah Chen&apos;s scaling research and showcases:
+This Vite + React surface presents the "knowledge patch" timeline for Sarah Chen using a lightweight, dependency-free render path. The goal is to make the story easy to understand without assuming WebGPU support or complex visualization tooling.
 
-- a premium hero summarising the mission and stewardship of the topic,
-- an interactive timeline of patches, and
-- GPU-accelerated concept cluster rendering using [Use.GPU](https://usegpu.live/) primitives.
+## Features
 
-## Getting started
+- Rich hero summary describing the mission and steward of the knowledge timeline.
+- Clickable timeline that swaps between three curated patches.
+- Patch overview, concept cluster summaries, and supporting claim ledger rendered with accessible HTML/CSS.
+
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-The project relies on modern browsers with WebGPU support to display the concept cluster map.
+The app intentionally ships with zero network calls; all content is sourced from `src/data/sarahChen.ts`. Update this file to experiment with alternative narratives or to hook up real pipeline output.
