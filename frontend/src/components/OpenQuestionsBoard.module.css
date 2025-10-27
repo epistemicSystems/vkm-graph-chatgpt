@@ -1,0 +1,137 @@
+.board {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.column {
+  background: rgba(15, 23, 42, 0.65);
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.columnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.columnTitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #60a5fa;
+}
+
+.columnMeta {
+  font-size: 0.8rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.85));
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.active {
+  border-color: rgba(251, 191, 36, 0.7);
+  box-shadow: 0 14px 32px rgba(253, 224, 71, 0.18);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.65rem;
+}
+
+.open {
+  background: rgba(244, 114, 182, 0.24);
+  color: #fbcfe8;
+}
+
+.in-progress {
+  background: rgba(56, 189, 248, 0.26);
+  color: #bae6fd;
+}
+
+.resolved {
+  background: rgba(134, 239, 172, 0.24);
+  color: #bbf7d0;
+}
+
+.timestamp {
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.prompt {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.owner {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.focus {
+  color: rgba(191, 219, 254, 0.95);
+}
+
+.breakthrough {
+  color: rgba(253, 224, 71, 0.8);
+}
+
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+}

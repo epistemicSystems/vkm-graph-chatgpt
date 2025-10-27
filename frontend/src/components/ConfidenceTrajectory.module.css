@@ -1,0 +1,97 @@
+.trajectory {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.8), rgba(17, 24, 39, 0.7));
+  color: inherit;
+  text-align: left;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.5);
+}
+
+.active {
+  border-color: rgba(251, 191, 36, 0.65);
+  box-shadow: 0 18px 40px rgba(253, 224, 71, 0.2);
+}
+
+.stepHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.8rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.timestamp {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.delta {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.positive {
+  color: #bbf7d0;
+}
+
+.negative {
+  color: #fecaca;
+}
+
+.neutral {
+  color: #e2e8f0;
+}
+
+.confidenceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.confidenceValue {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.momentum {
+  font-size: 0.85rem;
+  color: rgba(125, 211, 252, 0.9);
+}
+
+.narrative {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+.signal {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(253, 224, 71, 0.8);
+}
+
+@media (max-width: 768px) {
+  .trajectory {
+    grid-template-columns: 1fr;
+  }
+}
