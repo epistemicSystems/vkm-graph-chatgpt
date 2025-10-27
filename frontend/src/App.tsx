@@ -4,6 +4,8 @@ import { Timeline } from './components/Timeline'
 import { PatchOverview } from './components/PatchOverview'
 import { ConceptClusterPanel } from './components/ConceptClusterPanel'
 import { ClaimsLedger } from './components/ClaimsLedger'
+import { BreakthroughPanel } from './components/BreakthroughPanel'
+import { JourneyThreads } from './components/JourneyThreads'
 import { timeline } from './data/sarahChen'
 
 function App() {
@@ -50,6 +52,14 @@ function App() {
         <Timeline patches={timeline.patches} activeId={activePatch.id} onSelect={setActivePatchId} />
       </section>
 
+      <section className={styles.sectionCard}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionTitle}>Threads of change</span>
+          <span className={styles.sectionMeta}>How each patch shifts the strategy</span>
+        </div>
+        <JourneyThreads threads={timeline.threads} activePatchId={activePatch.id} />
+      </section>
+
       <div className={styles.layout}>
         <section className={styles.sectionCard}>
           <div className={styles.sectionHeader}>
@@ -57,6 +67,13 @@ function App() {
             <span className={styles.sectionMeta}>{activePatch.timestamp}</span>
           </div>
           <PatchOverview patch={activePatch} />
+        </section>
+        <section className={styles.sectionCard}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionTitle}>Breakthrough signal</span>
+            <span className={styles.sectionMeta}>Signal strength: {activePatch.breakthrough.signalStrength}</span>
+          </div>
+          <BreakthroughPanel breakthrough={activePatch.breakthrough} />
         </section>
         <section className={styles.sectionCard}>
           <div className={styles.sectionHeader}>

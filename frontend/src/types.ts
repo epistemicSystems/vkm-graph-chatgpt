@@ -6,12 +6,42 @@ export interface Claim {
   tags?: string[]
 }
 
+export interface InsightArtifact {
+  label: string
+  type: string
+  description?: string
+  url?: string
+}
+
+export type SignalStrength = 'weak' | 'emerging' | 'strong'
+
 export interface ConceptCluster {
   id: string
   label: string
   summary: string
   support: number
   topTerms: string[]
+}
+
+export interface Breakthrough {
+  headline: string
+  description: string
+  signalStrength: SignalStrength
+  supportingArtifacts: InsightArtifact[]
+  followUpQuestions: string[]
+}
+
+export interface ThreadStage {
+  patchId: string
+  statement: string
+  inflection?: string
+}
+
+export interface JourneyThread {
+  id: string
+  title: string
+  arc: string
+  stages: ThreadStage[]
 }
 
 export interface Patch {
@@ -22,6 +52,7 @@ export interface Patch {
   confidence: number
   claims: Claim[]
   clusters: ConceptCluster[]
+  breakthrough: Breakthrough
 }
 
 export interface TimelineData {
@@ -29,4 +60,5 @@ export interface TimelineData {
   mission: string
   owner: string
   patches: Patch[]
+  threads: JourneyThread[]
 }

@@ -49,6 +49,33 @@ export const timeline: TimelineData = {
           confidence: 0.39,
         },
       ],
+      breakthrough: {
+        headline: 'Leadership gravity is slowing the system down',
+        description:
+          'Sarah discovers that triage rituals make her the final stop for every ambiguous decision, which keeps teams dependent and reactive.',
+        signalStrength: 'weak',
+        supportingArtifacts: [
+          {
+            label: 'Stand-up escalation log',
+            type: 'transcript',
+            description: 'Six consecutive days of teams waiting on Sarah for approvals.',
+          },
+          {
+            label: 'Design review tracker',
+            type: 'metric',
+            description: 'Backlog peaks whenever Sarah travels or is double-booked.',
+          },
+          {
+            label: 'Coaching journal entry',
+            type: 'note',
+            description: 'Mentor flags that Sarah answers before asking clarifying questions.',
+          },
+        ],
+        followUpQuestions: [
+          'What context is missing for leads to make decisions before bringing them to Sarah?',
+          'How often do teams attempt to resolve conflicts without escalating?',
+        ],
+      },
     },
     {
       id: 'patch-2024-q3',
@@ -92,6 +119,33 @@ export const timeline: TimelineData = {
           confidence: 0.64,
         },
       ],
+      breakthrough: {
+        headline: 'Stewardship rotation unlocks parallel discovery',
+        description:
+          'By rotating a steward pair, Sarah distributes decision-making context and teams start resolving trade-offs without her.',
+        signalStrength: 'emerging',
+        supportingArtifacts: [
+          {
+            label: 'Steward rotation experiment deck',
+            type: 'artifact',
+            description: 'Outlines the scope → steward → share loop piloted across two teams.',
+          },
+          {
+            label: 'Weekly synthesis snapshots',
+            type: 'transcript',
+            description: 'Slack summaries show teams self-identifying risks before escalation.',
+          },
+          {
+            label: 'Survey pulse',
+            type: 'metric',
+            description: 'Autonomy score climbs from 3.1 → 4.2 out of 5 after two cycles.',
+          },
+        ],
+        followUpQuestions: [
+          'What onboarding is required for new stewards to feel confident in week one?',
+          'Where do discovery and delivery still diverge without a steward present?',
+        ],
+      },
     },
     {
       id: 'patch-2025-q1',
@@ -133,6 +187,78 @@ export const timeline: TimelineData = {
           text: 'Post-launch, teams grade decisions on clarity, reversibility, and measurable outcomes.',
           confidence: 0.8,
           source: 'Impact review template',
+        },
+      ],
+      breakthrough: {
+        headline: 'Pattern library becomes the shared memory for judgment',
+        description:
+          'With decision digests indexed and searchable, Sarah shifts from approver to curator and teams borrow precedent instead of waiting.',
+        signalStrength: 'strong',
+        supportingArtifacts: [
+          {
+            label: 'Decision digest archive',
+            type: 'artifact',
+            description: 'Thirty-two indexed digests tagged by risk profile and domain.',
+          },
+          {
+            label: 'Peer review guild charter',
+            type: 'note',
+            description: 'Defines readiness checklist before cross-functional review.',
+          },
+          {
+            label: 'Outcome instrumentation dashboard',
+            type: 'metric',
+            description: 'Shows a 27% increase in “clarity of decision” scores quarter-over-quarter.',
+          },
+        ],
+        followUpQuestions: [
+          'What signals indicate when a new pattern needs to be documented?',
+          'How will Sarah keep the pattern library trustworthy as the company doubles again?',
+        ],
+      },
+    },
+  ],
+  threads: [
+    {
+      id: 'thread-stewardship',
+      title: 'From escalation loops to distributed stewardship',
+      arc: 'Sarah progressively replaces herself as the central routing node by equipping stewards with context and precedent.',
+      stages: [
+        {
+          patchId: 'patch-2024-q1',
+          statement: 'Teams escalate routine decisions because Sarah is the only shared context carrier.',
+          inflection: 'Recognizes her role as bottleneck.',
+        },
+        {
+          patchId: 'patch-2024-q3',
+          statement: 'Steward rotation pilots show two teams deciding without waiting on Sarah.',
+          inflection: 'Sees autonomy climb when context is rotated intentionally.',
+        },
+        {
+          patchId: 'patch-2025-q1',
+          statement: 'Pattern library plus peer review guild make distributed judgment repeatable.',
+          inflection: 'Sarah curates precedent instead of approving execution details.',
+        },
+      ],
+    },
+    {
+      id: 'thread-metrics',
+      title: 'Shifting success metrics from throughput to decision quality',
+      arc: 'The definition of success evolves from moving tickets to building shared judgment signals.',
+      stages: [
+        {
+          patchId: 'patch-2024-q1',
+          statement: 'Throughput dashboards dominate, but they hide rework created by rushed approvals.',
+        },
+        {
+          patchId: 'patch-2024-q3',
+          statement: 'Shared dashboards now blend qualitative steward notes with delivery pace.',
+          inflection: 'Experimentation data supplements raw ticket velocity.',
+        },
+        {
+          patchId: 'patch-2025-q1',
+          statement: 'Impact reviews score decision clarity, reversibility, and outcomes as first-class metrics.',
+          inflection: 'Quality metrics close the loop on what “good judgment” looks like.',
         },
       ],
     },
