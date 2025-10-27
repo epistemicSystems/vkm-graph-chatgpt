@@ -23,12 +23,31 @@ export interface ConceptCluster {
   topTerms: string[]
 }
 
+export type FollowUpStatus = 'open' | 'in-progress' | 'resolved'
+
+export type FollowUpHorizon = 'immediate' | 'near-term' | 'long-term'
+
+export interface FollowUpQuestion {
+  id: string
+  prompt: string
+  status: FollowUpStatus
+  horizon: FollowUpHorizon
+  owner: string
+}
+
 export interface Breakthrough {
   headline: string
   description: string
   signalStrength: SignalStrength
   supportingArtifacts: InsightArtifact[]
-  followUpQuestions: string[]
+  followUpQuestions: FollowUpQuestion[]
+}
+
+export interface FollowUpBacklogEntry extends FollowUpQuestion {
+  patchId: string
+  patchTimestamp: string
+  patchFocusQuestion: string
+  breakthroughHeadline: string
 }
 
 export interface ThreadStage {

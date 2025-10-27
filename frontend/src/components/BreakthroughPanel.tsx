@@ -1,6 +1,18 @@
 import styles from './BreakthroughPanel.module.css'
 import type { Breakthrough } from '../types'
 
+const STATUS_LABELS = {
+  open: 'Open',
+  'in-progress': 'In progress',
+  resolved: 'Resolved',
+} as const satisfies Record<Breakthrough['followUpQuestions'][number]['status'], string>
+
+const HORIZON_LABELS = {
+  immediate: 'This sprint',
+  'near-term': 'Next quarter',
+  'long-term': 'Long view',
+} as const satisfies Record<Breakthrough['followUpQuestions'][number]['horizon'], string>
+
 const STRENGTH_LABELS: Record<Breakthrough['signalStrength'], string> = {
   weak: 'Signal forming',
   emerging: 'Signal strengthening',
@@ -39,8 +51,15 @@ export function BreakthroughPanel({ breakthrough }: { breakthrough: Breakthrough
           <h4 className={styles.subheading}>Follow-up questions</h4>
           <ul className={styles.questionList}>
             {breakthrough.followUpQuestions.map((question) => (
-              <li key={question} className={styles.question}>
-                {question}
+              <li key={question.id} className={styles.question}>
+                <div className={styles.questionHeader}>
+                  <span className={`${styles.statusBadge} ${styles[question.status]}`}>
+                    {STATUS_LABELS[question.status]}
+                  </span>
+                  <span className={styles.horizon}>{HORIZON_LABELS[question.horizon]}</span>
+                </div>
+                <p className={styles.questionPrompt}>{question.prompt}</p>
+                <span className={styles.questionOwner}>Owned by {question.owner}</span>
               </li>
             ))}
           </ul>

@@ -6,7 +6,10 @@ import { ConceptClusterPanel } from './components/ConceptClusterPanel'
 import { ClaimsLedger } from './components/ClaimsLedger'
 import { BreakthroughPanel } from './components/BreakthroughPanel'
 import { JourneyThreads } from './components/JourneyThreads'
+import { ConfidenceTrajectory } from './components/ConfidenceTrajectory'
+import { OpenQuestionsBoard } from './components/OpenQuestionsBoard'
 import { timeline } from './data/sarahChen'
+import type { FollowUpBacklogEntry } from './types'
 
 function App() {
   const [activePatchId, setActivePatchId] = useState(() => timeline.patches[0]?.id ?? '')
@@ -14,6 +17,20 @@ function App() {
   const activePatch = useMemo(
     () => timeline.patches.find((patch) => patch.id === activePatchId) ?? timeline.patches[0],
     [activePatchId],
+  )
+
+  const followUpBacklog = useMemo<FollowUpBacklogEntry[]>(
+    () =>
+      timeline.patches.flatMap((patch) =>
+        patch.breakthrough.followUpQuestions.map((question) => ({
+          ...question,
+          patchId: patch.id,
+          patchTimestamp: patch.timestamp,
+          patchFocusQuestion: patch.focusQuestion,
+          breakthroughHeadline: patch.breakthrough.headline,
+        })),
+      ),
+    [],
   )
 
   if (!activePatch) {
@@ -54,6 +71,14 @@ function App() {
 
       <section className={styles.sectionCard}>
         <div className={styles.sectionHeader}>
+          <span className={styles.sectionTitle}>Confidence trajectory</span>
+          <span className={styles.sectionMeta}>Track how conviction rose or dipped between patches</span>
+        </div>
+        <ConfidenceTrajectory patches={timeline.patches} activeId={activePatch.id} onSelect={setActivePatchId} />
+      </section>
+
+      <section className={styles.sectionCard}>
+        <div className={styles.sectionHeader}>
           <span className={styles.sectionTitle}>Threads of change</span>
           <span className={styles.sectionMeta}>How each patch shifts the strategy</span>
         </div>
@@ -90,6 +115,18 @@ function App() {
           <span className={styles.sectionMeta}>{activePatch.claims.length} supporting claims</span>
         </div>
         <ClaimsLedger claims={activePatch.claims} />
+      </section>
+
+      <section className={styles.sectionCard}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionTitle}>Follow-up backlog</span>
+          <span className={styles.sectionMeta}>Every open question stewarding Sarah&apos;s evolution</span>
+        </div>
+        <OpenQuestionsBoard
+          questions={followUpBacklog}
+          activePatchId={activePatch.id}
+          onSelectPatch={setActivePatchId}
+        />
       </section>
     </div>
   )

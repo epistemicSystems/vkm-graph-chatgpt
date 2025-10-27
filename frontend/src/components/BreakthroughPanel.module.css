@@ -101,10 +101,61 @@
 }
 
 .question {
-  padding: 0.65rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
   background: rgba(15, 23, 42, 0.6);
-  border-radius: 0.75rem;
-  border: 1px dashed rgba(94, 234, 212, 0.35);
+  border-radius: 0.9rem;
+  border: 1px solid rgba(94, 234, 212, 0.22);
   color: #e0f2fe;
   line-height: 1.45;
+}
+
+.questionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.65rem;
+}
+
+.open {
+  background: rgba(244, 114, 182, 0.22);
+  color: #fbcfe8;
+}
+
+.in-progress {
+  background: rgba(56, 189, 248, 0.24);
+  color: #bae6fd;
+}
+
+.resolved {
+  background: rgba(134, 239, 172, 0.24);
+  color: #bbf7d0;
+}
+
+.horizon {
+  font-weight: 500;
+  color: rgba(165, 243, 252, 0.85);
+}
+
+.questionPrompt {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.questionOwner {
+  font-size: 0.8rem;
+  color: rgba(148, 163, 184, 0.9);
 }
